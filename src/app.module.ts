@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CoffeesModule } from './coffees/coffees.module';
+import { CoffeeRatingModule } from './coffee-rating/coffee-rating.module';
 
 @Module({
   imports: [
@@ -14,9 +15,11 @@ import { CoffeesModule } from './coffees/coffees.module';
       username: 'postgres', // username
       password: 'pass123', // user password
       database: 'postgres', // name of our database,
-      autoLoadEntities: true, // models will be loaded automatically 
+      autoLoadEntities: true, // models will be loaded automatically
       synchronize: true,
-  })],
+    }),
+    CoffeeRatingModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
